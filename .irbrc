@@ -1,1 +1,1 @@
-/Users/zeke/code/personal/dotfiles/irbrc
+require 'rubygems'
