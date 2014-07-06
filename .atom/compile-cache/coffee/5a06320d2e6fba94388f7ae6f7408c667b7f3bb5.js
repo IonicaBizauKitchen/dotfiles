@@ -1,0 +1,58 @@
+(function() {
+  var $, MarkerView;
+
+  $ = require('atom').$;
+
+  module.exports = MarkerView = (function() {
+    function MarkerView(range, parent, editor) {
+      var rowSpan;
+      this.range = range;
+      this.parent = parent;
+      this.editor = editor;
+      this.element = document.createElement('div');
+      this.element.className = 'marker';
+      rowSpan = range.end.row - range.start.row;
+      if (rowSpan === 0) {
+        this.appendRegion(1, range.start, range.end);
+      } else {
+        this.appendRegion(1, range.start, null);
+        if (rowSpan > 1) {
+          this.appendRegion(rowSpan - 1, {
+            row: range.start.row + 1,
+            column: 0
+          }, null);
+        }
+        this.appendRegion(1, {
+          row: range.end.row,
+          column: 0
+        }, range.end);
+      }
+    }
+
+    MarkerView.prototype.appendRegion = function(rows, start, end) {
+      var charWidth, css, lineHeight, name, region, value, _ref;
+      _ref = this.editor, lineHeight = _ref.lineHeight, charWidth = _ref.charWidth;
+      css = this.editor.pixelPositionForScreenPosition(start);
+      css.height = lineHeight * rows;
+      if (end) {
+        css.width = this.editor.pixelPositionForScreenPosition(end).left - css.left;
+      } else {
+        css.right = 0;
+      }
+      region = document.createElement('div');
+      region.className = 'region';
+      for (name in css) {
+        value = css[name];
+        region.style[name] = value + 'px';
+      }
+      return this.element.appendChild(region);
+    };
+
+    return MarkerView;
+
+  })();
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiIgogIF0sCiAgIm5hbWVzIjogW10sCiAgIm1hcHBpbmdzIjogIkFBQUE7QUFBQSxNQUFBLGFBQUE7O0FBQUEsRUFBQyxJQUFLLE9BQUEsQ0FBUSxNQUFSLEVBQUwsQ0FBRCxDQUFBOztBQUFBLEVBRUEsTUFBTSxDQUFDLE9BQVAsR0FDTTtBQUVTLElBQUEsb0JBQUMsS0FBRCxFQUFRLE1BQVIsRUFBZ0IsTUFBaEIsR0FBQTtBQUNYLFVBQUEsT0FBQTtBQUFBLE1BQUEsSUFBQyxDQUFBLEtBQUQsR0FBUyxLQUFULENBQUE7QUFBQSxNQUNBLElBQUMsQ0FBQSxNQUFELEdBQVUsTUFEVixDQUFBO0FBQUEsTUFFQSxJQUFDLENBQUEsTUFBRCxHQUFVLE1BRlYsQ0FBQTtBQUFBLE1BR0EsSUFBQyxDQUFBLE9BQUQsR0FBVyxRQUFRLENBQUMsYUFBVCxDQUF1QixLQUF2QixDQUhYLENBQUE7QUFBQSxNQUlBLElBQUMsQ0FBQSxPQUFPLENBQUMsU0FBVCxHQUFxQixRQUpyQixDQUFBO0FBQUEsTUFLQSxPQUFBLEdBQVUsS0FBSyxDQUFDLEdBQUcsQ0FBQyxHQUFWLEdBQWdCLEtBQUssQ0FBQyxLQUFLLENBQUMsR0FMdEMsQ0FBQTtBQU9BLE1BQUEsSUFBRyxPQUFBLEtBQVcsQ0FBZDtBQUNFLFFBQUEsSUFBQyxDQUFBLFlBQUQsQ0FBYyxDQUFkLEVBQWlCLEtBQUssQ0FBQyxLQUF2QixFQUE4QixLQUFLLENBQUMsR0FBcEMsQ0FBQSxDQURGO09BQUEsTUFBQTtBQUdFLFFBQUEsSUFBQyxDQUFBLFlBQUQsQ0FBYyxDQUFkLEVBQWlCLEtBQUssQ0FBQyxLQUF2QixFQUE4QixJQUE5QixDQUFBLENBQUE7QUFDQSxRQUFBLElBQUcsT0FBQSxHQUFVLENBQWI7QUFDRSxVQUFBLElBQUMsQ0FBQSxZQUFELENBQWMsT0FBQSxHQUFVLENBQXhCLEVBQTJCO0FBQUEsWUFBRSxHQUFBLEVBQUssS0FBSyxDQUFDLEtBQUssQ0FBQyxHQUFaLEdBQWtCLENBQXpCO0FBQUEsWUFBNEIsTUFBQSxFQUFRLENBQXBDO1dBQTNCLEVBQW1FLElBQW5FLENBQUEsQ0FERjtTQURBO0FBQUEsUUFHQSxJQUFDLENBQUEsWUFBRCxDQUFjLENBQWQsRUFBaUI7QUFBQSxVQUFFLEdBQUEsRUFBSyxLQUFLLENBQUMsR0FBRyxDQUFDLEdBQWpCO0FBQUEsVUFBc0IsTUFBQSxFQUFRLENBQTlCO1NBQWpCLEVBQW9ELEtBQUssQ0FBQyxHQUExRCxDQUhBLENBSEY7T0FSVztJQUFBLENBQWI7O0FBQUEseUJBZ0JBLFlBQUEsR0FBYyxTQUFDLElBQUQsRUFBTyxLQUFQLEVBQWMsR0FBZCxHQUFBO0FBQ1osVUFBQSxxREFBQTtBQUFBLE1BQUEsT0FBNEIsSUFBQyxDQUFBLE1BQTdCLEVBQUUsa0JBQUEsVUFBRixFQUFjLGlCQUFBLFNBQWQsQ0FBQTtBQUFBLE1BQ0EsR0FBQSxHQUFNLElBQUMsQ0FBQSxNQUFNLENBQUMsOEJBQVIsQ0FBdUMsS0FBdkMsQ0FETixDQUFBO0FBQUEsTUFFQSxHQUFHLENBQUMsTUFBSixHQUFhLFVBQUEsR0FBYSxJQUYxQixDQUFBO0FBR0EsTUFBQSxJQUFHLEdBQUg7QUFDRSxRQUFBLEdBQUcsQ0FBQyxLQUFKLEdBQVksSUFBQyxDQUFBLE1BQU0sQ0FBQyw4QkFBUixDQUF1QyxHQUF2QyxDQUEyQyxDQUFDLElBQTVDLEdBQW1ELEdBQUcsQ0FBQyxJQUFuRSxDQURGO09BQUEsTUFBQTtBQUdFLFFBQUEsR0FBRyxDQUFDLEtBQUosR0FBWSxDQUFaLENBSEY7T0FIQTtBQUFBLE1BUUEsTUFBQSxHQUFTLFFBQVEsQ0FBQyxhQUFULENBQXVCLEtBQXZCLENBUlQsQ0FBQTtBQUFBLE1BU0EsTUFBTSxDQUFDLFNBQVAsR0FBbUIsUUFUbkIsQ0FBQTtBQVVBLFdBQUEsV0FBQTswQkFBQTtBQUNFLFFBQUEsTUFBTSxDQUFDLEtBQU0sQ0FBQSxJQUFBLENBQWIsR0FBcUIsS0FBQSxHQUFRLElBQTdCLENBREY7QUFBQSxPQVZBO2FBYUEsSUFBQyxDQUFBLE9BQU8sQ0FBQyxXQUFULENBQXFCLE1BQXJCLEVBZFk7SUFBQSxDQWhCZCxDQUFBOztzQkFBQTs7TUFMRixDQUFBO0FBQUEiCn0=
+//# sourceURL=/Users/zeke/.atom/packages/highlight-selected/lib/marker-view.coffee

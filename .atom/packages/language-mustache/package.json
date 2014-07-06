@@ -1,0 +1,25 @@
+{
+  "name": "language-mustache",
+  "version": "0.7.0",
+  "description": "Mustache language support in Atom",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "homepage": "http://atom.github.io/language-mustache",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atom/language-mustache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atom/language-mustache/issues"
+  },
+  "readme": "# Mustache language support in Atom\n\nAdds syntax highlighting to Mustache files in Atom.\n\nOriginally [converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)\nfrom the [Mustache TextMate bundle](https://github.com/textmate/mustache.tmbundle).\n\nContributions are greatly appreciated. Please fork this repository and open a\npull request to add snippets, make grammar tweaks, etc.\n",
+  "readmeFilename": "README.md",
+  "_id": "language-mustache@0.7.0",
+  "dist": {
+    "shasum": "9982c905c6c00e3bc14a8e8c6238f0c90333c851"
+  },
+  "_resolved": "/var/folders/ny/m7dp37r118g7h2gtdk16bxc40000gn/T/d-11459-43194-13t6mzr/package.tgz",
+  "_from": "/var/folders/ny/m7dp37r118g7h2gtdk16bxc40000gn/T/d-11459-43194-13t6mzr/package.tgz"
+}
