@@ -58,6 +58,7 @@ code
 .node-gyp
 .node_history
 .npm
+.npmrc
 .npmd
 .npmrc-australia-wtf
 .npmrc-broken-maybe
