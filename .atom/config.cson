@@ -30,3 +30,5 @@
   'autoActivationDelay': 300
 'autosave':
   'enabled': true
+'jshint':
+  'transformJsx': true
