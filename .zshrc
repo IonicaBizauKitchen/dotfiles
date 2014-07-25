@@ -4,6 +4,7 @@
 # export HEROKU_API_URL=https://api.staging.herokudev.com
 # export HEROKU_APPDOMAIN=staging.herokuappdev.com
 # export HEROKU_MANAGER_URL=https://manager-api-staging.herokuapp.com
+export HEROKU_USE_SPECIAL_SUDO_TOKEN=1
 
 autoload colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
@@ -90,15 +91,11 @@ dir() {
 }
 alias la='ls -A1'
 alias cp='cp -r'
-# alias photo='open -a "Adobe Photoshop CS6" $1'
-# alias ill='open -a "Adobe Illustrator" $1'
 alias code='cd ~/code'
 alias hero='cd ~/code/hero'
 alias copy=pbcopy
-# alias rm=trash
+alias rm=rmtrash
 alias h=/usr/local/bin/heroku
-# alias hk=/usr/local/bin/hks
-# alias heroku=hk
 alias exot=exit
 
 # Create `cd foo` aliases for immediate subdirectories
@@ -299,3 +296,9 @@ alias b="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format=
 
 # Create a new issue with ghi and assign it to myself
 issue() { ghi open --claim -m "$*"; }
+
+# added by travis gem
+[ -f /Users/zeke/.travis/travis.sh ] && source /Users/zeke/.travis/travis.sh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

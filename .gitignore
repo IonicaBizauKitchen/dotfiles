@@ -79,6 +79,7 @@ code
 .ssh
 .subversion
 .tilemill
+.travis
 .viminfo
 .vulcan
 .zcompdump

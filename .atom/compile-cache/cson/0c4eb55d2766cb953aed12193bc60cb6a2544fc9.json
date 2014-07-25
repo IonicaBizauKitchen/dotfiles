@@ -1,1 +1,0 @@
-{"context-menu":{".overlayer":{"Sort properties":"csscomb:execute"}},"menu":[{"label":"Packages","submenu":[{"label":"CSSComb","submenu":[{"label":"Sort properties","command":"csscomb:execute"}]}]}]}
