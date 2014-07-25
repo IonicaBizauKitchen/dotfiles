@@ -101,3 +101,10 @@ Pictures
 Public
 code
 tmp
+
+.atom/compile-cache
+.atom/packages
+.atom/dev
+.atom/storage
+.atom/.npm
+.atom/.node-gyp
