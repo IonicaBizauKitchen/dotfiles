@@ -1,15 +1,9 @@
-# export HEROKU_CLOUD=staging
-# export ION_HOST=ion-staging.herokai.com
-# export HEROKU_HOST=staging.herokudev.com
-# export HEROKU_API_URL=https://api.staging.herokudev.com
-# export HEROKU_APPDOMAIN=staging.herokuappdev.com
-# export HEROKU_MANAGER_URL=https://manager-api-staging.herokuapp.com
-export HEROKU_USE_SPECIAL_SUDO_TOKEN=1
+cexport HEROKU_USE_SPECIAL_SUDO_TOKEN=1
 
 autoload colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 setopt prompt_subst
-setopt append_history       # append history list to the history file
+setopt append_history # append history list to the history file
 
 # prompt
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}%{$fg[cyan]%}"
