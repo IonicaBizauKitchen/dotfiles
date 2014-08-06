@@ -65,6 +65,9 @@ eval "$(rbenv init -)"
 # Postgres
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
+# allow executing npm binaries installed into the .bin local and isolated current ./node_modules
+export PATH="$PATH:./node_modules/.bin"
+
 # NVM
 [[ -s /Users/zeke/.nvm/nvm.sh ]] && . /Users/zeke/.nvm/nvm.sh
 
