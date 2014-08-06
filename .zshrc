@@ -1,4 +1,4 @@
-cexport HEROKU_USE_SPECIAL_SUDO_TOKEN=1
+export HEROKU_USE_SPECIAL_SUDO_TOKEN=1
 
 autoload colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
