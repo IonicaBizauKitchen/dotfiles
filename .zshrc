@@ -118,7 +118,7 @@ function zindex {
     ~/code \
     ~/code/app-json \
     ~/code/hero \
-    ~/code/npm \
+    ~/code/n \
     ~/code/personal
 }
 
