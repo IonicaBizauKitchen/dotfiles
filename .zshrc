@@ -65,7 +65,7 @@ export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 export PATH="$PATH:./node_modules/.bin"
 
 # NVM
-[[ -s /Users/zeke/.nvm/nvm.sh ]] && . /Users/zeke/.nvm/nvm.sh
+source ~/.nvm/nvm.sh
 
 # Keep a long history
 export HISTSIZE=10000
@@ -81,8 +81,6 @@ alias .....='cd ../../../../'
 alias la='ls -A1'
 alias cp='cp -r'
 alias code='cd ~/code'
-alias hero='cd ~/code/hero'
-alias copy=pbcopy
 alias rm=rmtrash
 alias h=/usr/local/bin/heroku
 alias exot=exit
