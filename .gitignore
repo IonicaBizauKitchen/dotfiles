@@ -108,3 +108,6 @@ tmp
 .atom/storage
 .atom/.npm
 .atom/.node-gyp
+
+.vagrant.d/
+VirtualBox VMs/

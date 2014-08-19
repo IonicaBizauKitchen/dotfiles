@@ -61,6 +61,8 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 # Postgres
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 
+export PATH=$HOME/npm/bin:$PATH
+
 # allow executing npm binaries installed into the .bin local and isolated current ./node_modules
 export PATH="$PATH:./node_modules/.bin"
 
