@@ -7,7 +7,7 @@
 'metrics':
   'userId': '2959f70f3a8d22a47397c0ba5975d2a4e3d10dcd'
 'editor':
-  'softWrap': true
+  'softWrap': false
   'fontFamily': 'Monaco'
   'preferredLineLength': 120
 'core':
@@ -22,14 +22,14 @@
     'autocomplete-plus'
     'autocomplete'
     'metrics'
-    'inline-autocomplete'
   ]
   'themes': [
     'atom-dark-ui'
     'base16-tomorrow-dark-theme'
   ]
   'useReactEditor': false
-'tree-view': {}
+'tree-view':
+  'hideVcsIgnoredFiles': true
 'autocomplete-plus':
   'autoActivationDelay': 300
 'autosave':
@@ -38,3 +38,5 @@
   'transformJsx': true
 'inline-autocomplete':
   'includeCompletionsFromAllBuffers': true
+'atom-beautify':
+  '_analyticsUserId': '2973be02-2b26-4115-a4a8-d0ef026bca64'
