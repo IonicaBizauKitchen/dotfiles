@@ -115,6 +115,7 @@ source ~/.aliases
 # Update my favorite directories
 function zindex {
   alias_subdirectories \
+    ~ \
     ~/code \
     ~/code/app-json \
     ~/code/hero \
@@ -227,4 +228,4 @@ alias git=hub
 alias b="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 
 # Create a new issue with ghi and assign it to myself
-issue() { ghi open --claim -m "$*"; }
+issue() { ghi open -m "$*"; }
