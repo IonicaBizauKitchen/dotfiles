@@ -199,6 +199,11 @@ deploy() {
   git push heroku master
 }
 
+# Type `gd branchname` to list files that differ from current branch
+gd() {
+  git diff --name-status $(git symbolic-ref --short HEAD) $1
+}
+
 alias pull='git pull --rebase'
 alias push='git push'
 alias gs='git status'
