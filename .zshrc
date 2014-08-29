@@ -208,6 +208,8 @@ alias pull='git pull --rebase'
 alias push='git push'
 alias gs='git status'
 alias status='git status'
+alias co='git checkout'
+alias c='git checkout'
 
 # clone() {
 #   git clone $1
@@ -234,3 +236,5 @@ alias b="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format=
 
 # Create a new issue with ghi and assign it to myself
 issue() { ghi open -m "$*"; }
+
+repo(){ open "https://github.com/$1" }
