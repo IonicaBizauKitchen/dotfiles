@@ -186,9 +186,32 @@ alias refresh='source ~/.zshrc; echo ".zshrc sourced"'
 
 # Git
 
+# commit "fix all the things"
+# commit quotes not required if not using apostrophes and suchlike
 commit() {
   git add .
   git commit -avm "$*" --allow-empty
+}
+
+# patch "fix that bug"
+patch(){
+  npm version patch -m "$*"
+  npm publish
+  git push
+}
+
+# minor "add that new backwards-compatible feature"
+minor(){
+  npm version minor -m "$*"
+  npm publish
+  git push
+}
+
+# major "break old APIs with new hotness"
+major(){
+  npm version major -m "$*"
+  npm publish
+  git push
 }
 
 deploy() {
