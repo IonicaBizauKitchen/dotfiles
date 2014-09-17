@@ -10,6 +10,7 @@
   'softWrap': false
   'fontFamily': 'Monaco'
   'preferredLineLength': 120
+  'invisibles': {}
 'core':
   'excludeVcsIgnoredPaths': false
   'ignoredNames': [
@@ -22,14 +23,20 @@
     'autocomplete-plus'
     'autocomplete'
     'metrics'
+    'emmet'
+    'archive-view'
+    'color-gutter'
+    'dev-live-reload'
+    'html2jade'
   ]
   'themes': [
-    'atom-dark-ui'
-    'base16-tomorrow-dark-theme'
+    'atom-light-ui'
+    'atom-light-syntax'
   ]
-  'useReactEditor': false
+  'useReactEditor': true
 'tree-view':
   'hideVcsIgnoredFiles': true
+  'hideIgnoredNames': true
 'autocomplete-plus':
   'autoActivationDelay': 300
 'autosave':
@@ -40,3 +47,8 @@
   'includeCompletionsFromAllBuffers': true
 'atom-beautify':
   '_analyticsUserId': '2973be02-2b26-4115-a4a8-d0ef026bca64'
+'fuzzy-finder': {}
+'markdown-preview': {}
+'spell-check': {}
+'tabs': {}
+'wrap-lines': {}
