@@ -18,3 +18,4 @@ Capfile
 .anvil
 .__empty.jsnode_modules
 .env
+npm-debug.log

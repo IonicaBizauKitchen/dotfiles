@@ -112,3 +112,4 @@ tmp
 .vagrant.d/
 VirtualBox VMs/
 .cloudup.json
+.admin.npmrc
