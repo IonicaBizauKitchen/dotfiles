@@ -65,7 +65,7 @@ export PATH=$HOME/npm/bin:$PATH
 
 alias adminpm="npm --userconfig=$HOME/.admin.npmrc"
 
-# allow executing npm binaries installed into the .bin local and isolated current ./node_modules
+# allow locally installed npm binaries to be executed
 export PATH="$PATH:./node_modules/.bin"
 
 # NVM
@@ -88,6 +88,10 @@ alias code='cd ~/code'
 alias rm=rmtrash
 alias h=/usr/local/bin/heroku
 alias exot=exit
+alias Desktop='cd ~/Desktop'
+alias desk='cd ~/Desktop'
+alias D='cd ~/Desktop'
+alias d='cd ~/Desktop'
 
 dir() {
   mkdir -p $1
@@ -216,12 +220,36 @@ major(){
   git push
 }
 
-deploy() {
+hdeploy() {
   if [ "$1" ]; then
     commit $*
   fi
   git push origin master
   git push heroku master
+}
+
+deploy_newww() {
+  set +x
+  CDPATH= cd $(find ~ -name npm-ansible -maxdepth 3 -type d | head -n1)
+  ansible-playbook ./playbooks/deploy-newww.yml -i newww
+  cd -
+  set -x
+}
+
+deploy_docs_staging() {
+  set +x
+  CDPATH= cd $(find ~ -name npm-ansible -maxdepth 3 -type d | head -n1)
+  ansible-playbook ./playbooks/deploy-docs.yml -i staging
+  cd -
+  set -x
+}
+
+deploy_docs_production() {
+  set +x
+  CDPATH= cd $(find ~ -name npm-ansible -maxdepth 3 -type d | head -n1)
+  ansible-playbook ./playbooks/deploy-docs.yml -i production
+  cd -
+  set -x
 }
 
 # Type `gd branchname` to list files that differ from current branch
@@ -235,6 +263,7 @@ alias gs='git status'
 alias status='git status'
 alias co='git checkout'
 alias c='git checkout'
+alias cherry='git cherry-pick'
 
 # clone() {
 #   git clone $1

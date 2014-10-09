@@ -29,10 +29,6 @@
     'dev-live-reload'
     'html2jade'
   ]
-  'themes': [
-    'atom-light-ui'
-    'atom-light-syntax'
-  ]
   'useReactEditor': true
 'tree-view':
   'hideVcsIgnoredFiles': true
