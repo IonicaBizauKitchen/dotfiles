@@ -231,9 +231,8 @@ hdeploy() {
 }
 
 deploy() {
-  set +x
+  echo git push origin $(git symbolic-ref --short -q HEAD):deploy-$1 --force
   git push origin $(git symbolic-ref --short -q HEAD):deploy-$1 --force
-  set -x
 }
 
 # Type `gd branchname` to list files that differ from current branch
