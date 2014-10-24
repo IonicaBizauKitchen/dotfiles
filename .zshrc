@@ -158,13 +158,15 @@ hurl() {
 # alias notes=note
 
 # Find all non-hidden files in the current path
-ff() { find . -iname '*'$*'*' -type f ! -iname ".*"; }
+ff() { find . -iname '*'$*'*' -type f ! -iname ".*" ! -path "*node_modules*"; }
 
 # Find all non-hidden directories in the current path
-fd() { find . -iname '*'$*'*' -type d ! -iname ".*"; }
+fd() { find . -iname '*'$*'*' -type d ! -iname ".*" ! -path "*node_modules*"; }
 
-# Find all files and directories in the current path
-fa() { find . -iname '*'$*'*' ; }
+# Find all files and directories in the current path,
+# ignoring hidden files and node_modules
+f() { find . -iname '*'$*'*' ! -iname ".*" ! -path "*node_modules*"; }
+alias fa=f
 
 # Search the history
 hist() { history | grep "$*"; }
@@ -228,27 +230,9 @@ hdeploy() {
   git push heroku master
 }
 
-deploy_newww() {
+deploy() {
   set +x
-  CDPATH= cd $(find ~ -name npm-ansible -maxdepth 3 -type d | head -n1)
-  ansible-playbook ./playbooks/deploy-newww.yml -i newww
-  cd -
-  set -x
-}
-
-deploy_docs_staging() {
-  set +x
-  CDPATH= cd $(find ~ -name npm-ansible -maxdepth 3 -type d | head -n1)
-  ansible-playbook ./playbooks/deploy-docs.yml -i staging
-  cd -
-  set -x
-}
-
-deploy_docs_production() {
-  set +x
-  CDPATH= cd $(find ~ -name npm-ansible -maxdepth 3 -type d | head -n1)
-  ansible-playbook ./playbooks/deploy-docs.yml -i production
-  cd -
+  git push origin $(git symbolic-ref --short -q HEAD):deploy-$1 --force
   set -x
 }
 
@@ -265,11 +249,11 @@ alias co='git checkout'
 alias c='git checkout'
 alias cherry='git cherry-pick'
 
-# clone() {
-#   git clone $1
-#   cd $(basename $1)
-#   edit .
-# }
+clone() {
+  git clone $1
+  cd $(basename $1)
+  edit .
+}
 
 # Remove a remote and local git branch
 prune() {
