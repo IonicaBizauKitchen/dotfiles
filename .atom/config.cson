@@ -27,6 +27,8 @@
       'color-gutter'
       'dev-live-reload'
       'html2jade'
+      'highlight-selected'
+      'bookmarks'
     ]
     'useReactEditor': true
   'tree-view':
@@ -41,3 +43,6 @@
     'includeCompletionsFromAllBuffers': true
   'atom-beautify':
     '_analyticsUserId': '2973be02-2b26-4115-a4a8-d0ef026bca64'
+  'fuzzy-finder': {}
+'.handlebars.html.text':
+  'editor': {}

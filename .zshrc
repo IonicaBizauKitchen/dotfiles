@@ -92,6 +92,7 @@ alias Desktop='cd ~/Desktop'
 alias desk='cd ~/Desktop'
 alias D='cd ~/Desktop'
 alias d='cd ~/Desktop'
+alias v=vagrant
 
 dir() {
   mkdir -p $1
