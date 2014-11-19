@@ -158,6 +158,22 @@ hurl() {
 # }
 # alias notes=note
 
+git_files_touched_by() {
+  git log --no-merges --author="$1" --stat --name-only --pretty=format:"" | sort -u
+}
+
+git_files_untouched_by() {
+  git log --no-merges --stat --name-only --pretty=format:"" | sort -u > /tmp/all
+  git log --no-merges --author="$1" --stat --name-only --pretty=format:"" | sort -u > /tmp/user
+  comm -3 /tmp/all /tmp/user
+}
+
+# git log --no-merges --stat --name-only --pretty=format:"" | sort -u > audit-all.txt
+# git log --no-merges --stat --author="zeke" --name-only --pretty=format:"" | sort -u > audit-zeke.txt
+# git log --no-merges --stat --author="rockbot" --name-only --pretty=format:"" | sort -u > audit-rockbot.txt
+# comm -3 audit-all.txt audit-zeke.txt > audit-zeke-untouched.txt
+# comm -3 audit-all.txt audit-rockbot.txt > audit-rockbot-untouched.txt
+
 # Find all non-hidden files in the current path
 ff() { find . -iname '*'$*'*' -type f ! -iname ".*" ! -path "*node_modules*"; }
 
@@ -168,6 +184,10 @@ fd() { find . -iname '*'$*'*' -type d ! -iname ".*" ! -path "*node_modules*"; }
 # ignoring hidden files and node_modules
 f() { find . -iname '*'$*'*' ! -iname ".*" ! -path "*node_modules*"; }
 alias fa=f
+
+in() {
+  mdfind \"$*\" -onlyin .
+}
 
 # Search the history
 hist() { history | grep "$*"; }
@@ -235,6 +255,15 @@ deploy() {
   echo git push origin $(git symbolic-ref --short -q HEAD):deploy-$1 --force
   git push origin $(git symbolic-ref --short -q HEAD):deploy-$1 --force
 }
+
+# tail npm servers
+# Usage t staging
+t(){
+  local server=$(ec2tail list-servers | grep $(basename $(pwd)) | grep $1)
+  echo "ec2tail -f $server"
+  ec2tail -f $server
+}
+
 
 # Type `gd branchname` to list files that differ from current branch
 gd() {
