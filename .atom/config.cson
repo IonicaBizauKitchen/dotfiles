@@ -9,8 +9,6 @@
     'userId': '2959f70f3a8d22a47397c0ba5975d2a4e3d10dcd'
   'editor':
     'preferredLineLength': 120
-    'fontSize': 17
-    'invisibles': {}
   'core':
     'ignoredNames': [
       '.git'
@@ -22,7 +20,6 @@
       'autocomplete-plus'
       'autocomplete'
       'metrics'
-      'emmet'
       'archive-view'
       'color-gutter'
       'dev-live-reload'
@@ -43,6 +40,5 @@
     'includeCompletionsFromAllBuffers': true
   'atom-beautify':
     '_analyticsUserId': '2973be02-2b26-4115-a4a8-d0ef026bca64'
-  'fuzzy-finder': {}
 '.handlebars.html.text':
   'editor': {}
