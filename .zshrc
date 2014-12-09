@@ -273,10 +273,15 @@ gd() {
 alias pull='git pull --rebase'
 alias push='git push'
 alias gs='git status'
+alias cont='git rebase --continue'
 alias status='git status'
+alias st='git status'
+alias diff='git diff'
 alias co='git checkout'
 alias c='git checkout'
+alias com='git commit'
 alias cherry='git cherry-pick'
+alias stash='git stash'
 
 clone() {
   git clone $1
