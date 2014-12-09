@@ -9,6 +9,7 @@
     'userId': '2959f70f3a8d22a47397c0ba5975d2a4e3d10dcd'
   'editor':
     'preferredLineLength': 120
+    'fontSize': 18
   'core':
     'ignoredNames': [
       '.git'
