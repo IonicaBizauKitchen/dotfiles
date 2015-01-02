@@ -84,7 +84,6 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias la='ls -A1'
 alias cp='cp -r'
-alias code='cd ~/code'
 alias rm=rmtrash
 alias h=/usr/local/bin/heroku
 alias exot=exit
@@ -103,7 +102,7 @@ dir() {
 # of the given directory (or directories).
 #
 # Usage:
-# alias_subdirectories ~/code ~/code/hero ~/code/personal
+# alias_subdirectories ~/n ~/personal
 alias_subdirectories() {
   for dir in $(find $* -type d -mindepth 1 -maxdepth 1); do
     base=`basename $dir`
@@ -123,15 +122,12 @@ source ~/.aliases
 function zindex {
   alias_subdirectories \
     ~ \
-    ~/code \
-    ~/code/app-json \
-    ~/code/hero \
-    ~/code/n \
-    ~/code/personal
+    ~/n \
+    ~/personal
 }
 
 # Allows me to cd into projects
-# cdpath=(. ~/code/ ~/code/hero ~/code/personal ~/code/forks ~/support)
+# cdpath=(. ~/code/ ~/code/hero ~/code/personal)s
 # cdpath=~/code/hero
 # typeset -gU cdpath
 # setopt autocd
@@ -151,12 +147,6 @@ destroy_temporary_heroku_apps() {
 hurl() {
   curl -n -H "Accept: application/vnd.heroku+json; version=3" https://api.heroku.com/$@
 }
-
-# Open my node notes for today
-# note() {
-#   edit ~/code/hero/node-team/notes/`date +"%Y-%m-%d-%a.md" | tr '[A-Z]' '[a-z]'`
-# }
-# alias notes=note
 
 git_files_touched_by() {
   git log --no-merges --author="$1" --stat --name-only --pretty=format:"" | sort -u
