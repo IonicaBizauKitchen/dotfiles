@@ -8,10 +8,10 @@
   metrics:
     userId: "2959f70f3a8d22a47397c0ba5975d2a4e3d10dcd"
   editor:
+    fontSize: 17
     autoIndentOnPaste: false
     preferredLineLength: 120
     invisibles: {}
-    fontSize: 17
   core:
     ignoredNames: [
       ".git"
