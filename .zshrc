@@ -92,6 +92,8 @@ alias desk='cd ~/Desktop'
 alias D='cd ~/Desktop'
 alias d='cd ~/Desktop'
 alias v=vagrant
+alias io=iojs
+alias t='npm test'
 
 dir() {
   mkdir -p $1
@@ -212,25 +214,27 @@ commit() {
   git commit -avm "$*" --allow-empty
 }
 
-# patch "fix that bug"
+# npm publishing shortcuts
+
+# patch fix that bug
 patch(){
   npm version patch -m "$*"
   npm publish
-  git push
+  git push origin master --follow-tags
 }
 
-# minor "add that new backwards-compatible feature"
+# minor add that new backwards-compatible feature
 minor(){
   npm version minor -m "$*"
   npm publish
-  git push
+  git push origin master --follow-tags
 }
 
-# major "break old APIs with new hotness"
+# major break old APIs with new hotness
 major(){
   npm version major -m "$*"
   npm publish
-  git push
+  git push origin master --follow-tags
 }
 
 hdeploy() {
@@ -242,13 +246,13 @@ hdeploy() {
 }
 
 deploy() {
-  echo git push origin $(git symbolic-ref --short -q HEAD):deploy-$1 --force
-  git push origin $(git symbolic-ref --short -q HEAD):deploy-$1 --force
+  echo git push origin +$(git symbolic-ref --short -q HEAD):deploy-$1
+  git push origin +$(git symbolic-ref --short -q HEAD):deploy-$1
 }
 
 # tail npm servers
 # Usage t staging
-t(){
+ntail(){
   local server=$(ec2tail list-servers | grep $(basename $(pwd)) | grep $1)
   echo "ec2tail -f $server"
   ec2tail -f $server

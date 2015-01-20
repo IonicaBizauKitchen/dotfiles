@@ -119,3 +119,7 @@ forks
 n
 personal
 dump.rdb
+
+.pygmentize-bundled-cache
+.npm-diplomat
+io

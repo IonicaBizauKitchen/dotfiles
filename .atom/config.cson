@@ -1,44 +1,46 @@
-'global':
-  'exception-reporting':
-    'userId': '7b747fcb-ad2f-27c3-6e33-348206517f44'
-  'release-notes':
-    'viewedVersion': '0.95.0'
-  'welcome':
-    'showOnStartup': false
-  'metrics':
-    'userId': '2959f70f3a8d22a47397c0ba5975d2a4e3d10dcd'
-  'editor':
-    'preferredLineLength': 120
-  'core':
-    'ignoredNames': [
-      '.git'
-      '.svn'
-      '.DS_Store'
-      'node_modules'
+"*":
+  "exception-reporting":
+    userId: "7b747fcb-ad2f-27c3-6e33-348206517f44"
+  "release-notes":
+    viewedVersion: "0.95.0"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "2959f70f3a8d22a47397c0ba5975d2a4e3d10dcd"
+  editor:
+    autoIndentOnPaste: false
+    preferredLineLength: 120
+    invisibles: {}
+    fontSize: 17
+  core:
+    ignoredNames: [
+      ".git"
+      ".svn"
+      ".DS_Store"
+      "node_modules"
     ]
-    'disabledPackages': [
-      'autocomplete-plus'
-      'autocomplete'
-      'metrics'
-      'archive-view'
-      'color-gutter'
-      'dev-live-reload'
-      'html2jade'
-      'highlight-selected'
-      'bookmarks'
+    disabledPackages: [
+      "autocomplete-plus"
+      "autocomplete"
+      "metrics"
+      "archive-view"
+      "color-gutter"
+      "dev-live-reload"
+      "html2jade"
+      "highlight-selected"
+      "bookmarks"
     ]
-    'useReactEditor': true
-  'tree-view':
-    'hideIgnoredNames': true
-  'autocomplete-plus':
-    'autoActivationDelay': 300
-  'autosave':
-    'enabled': true
-  'jshint':
-    'transformJsx': true
-  'inline-autocomplete':
-    'includeCompletionsFromAllBuffers': true
-  'atom-beautify':
-    '_analyticsUserId': '2973be02-2b26-4115-a4a8-d0ef026bca64'
-'.handlebars.html.text':
-  'editor': {}
+  "tree-view":
+    hideIgnoredNames: true
+  "autocomplete-plus":
+    autoActivationDelay: 300
+  autosave:
+    enabled: true
+  jshint:
+    transformJsx: true
+  "inline-autocomplete":
+    includeCompletionsFromAllBuffers: true
+  "atom-beautify":
+    _analyticsUserId: "2973be02-2b26-4115-a4a8-d0ef026bca64"
+".handlebars.html.text":
+  editor: {}
