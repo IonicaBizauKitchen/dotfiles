@@ -214,6 +214,10 @@ commit() {
   git commit -avm "$*" --allow-empty
 }
 
+uncommit() {
+  git reset --soft HEAD~1
+}
+
 # npm publishing shortcuts
 
 # patch fix that bug
