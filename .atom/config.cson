@@ -29,10 +29,6 @@
       "highlight-selected"
       "bookmarks"
     ]
-    themes: [
-      "atom-light-ui"
-      "atom-light-syntax"
-    ]
   "tree-view":
     hideIgnoredNames: true
   "autocomplete-plus":
@@ -45,5 +41,3 @@
     includeCompletionsFromAllBuffers: true
   "atom-beautify":
     _analyticsUserId: "2973be02-2b26-4115-a4a8-d0ef026bca64"
-".handlebars.html.text":
-  editor: {}
