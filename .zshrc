@@ -218,7 +218,30 @@ uncommit() {
   git reset --soft HEAD~1
 }
 
-# npm publishing shortcuts
+# npm shortcuts
+
+npm() {
+  if [ "$1" = "open" ] && [ hash npmwd 2>/dev/null ]; then
+    shift
+    npmwd "$@"
+  else
+    command npm "$@"
+  fi
+}
+
+uptimes() {
+  echo "\nwww.npmjs.com"
+  curl -s https://www.npmjs.com/_monitor/status | json uptime
+
+  echo "\nstaging.npmjs.com"
+  curl -s https://staging.npmjs.com/_monitor/status | json uptime
+
+  echo "\ndocs.npmjs.com"
+  curl -s https://docs.npmjs.com/_monitor/status | json uptime
+
+  echo "\ndocs-staging.npmjs.com"
+  curl -s https://docs-staging.npmjs.com/_monitor/status | json uptime
+}
 
 # patch fix that bug
 patch(){
@@ -302,7 +325,7 @@ alias git=hub
 
 # List branches in reverse chronological order..
 # http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
-alias b="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+alias b="git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 
 # Create a new issue with ghi and assign it to myself
 issue() { ghi open -m "$*"; }
