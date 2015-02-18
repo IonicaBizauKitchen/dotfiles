@@ -53,15 +53,12 @@ PROMPT='
 
 # PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-
-# # rbenv
-# export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
-# eval "$(rbenv init -)"
-
-# Postgres
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
-
 export PATH=$HOME/npm/bin:$PATH
+
+# Use fresh git instead of XCode git
+# http://goo.gl/kL1KRm
+export PATH="/usr/local/git/bin:$PATH"
 
 alias adminpm="npm --userconfig=$HOME/.admin.npmrc"
 
