@@ -218,9 +218,11 @@ uncommit() {
 # npm shortcuts
 
 npm() {
-  if [ "$1" = "open" ] && [ hash npmwd 2>/dev/null ]; then
-    shift
-    npmwd "$@"
+  if [ "$1" = "dev" ]; then
+    npm run dev
+  # elif [ "$1" = "open" ] && [ hash npmwd 2>/dev/null ]; then
+  #   shift
+  #   npmwd "$@"
   else
     command npm "$@"
   fi
@@ -324,7 +326,7 @@ alias git=hub
 # http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
 alias b="git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 
-# Create a new issue with ghi and assign it to myself
+# Create a new issue with ghi
 issue() { ghi open -m "$*"; }
 
 repo(){ open "https://github.com/$1" }
