@@ -123,3 +123,5 @@ dump.rdb
 .pygmentize-bundled-cache
 .npm-diplomat
 io
+.tldr
+.inputrc
