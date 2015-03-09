@@ -91,6 +91,7 @@ alias d='cd ~/Desktop'
 alias v=vagrant
 alias io=iojs
 alias t='npm test'
+alias i='npm install'
 
 dir() {
   mkdir -p $1
