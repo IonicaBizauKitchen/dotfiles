@@ -1,6 +1,4 @@
 [
-  "Nice Philanthropist Metalhead",
-  "Never Pet Marmots",
   "Naboo's Podracing Misadventure",
   "Nacho Pizza Marinade",
   "Nacho Portion Monitor",
@@ -55,6 +53,7 @@
   "Neutralize Pesky Miscreants",
   "Never Paint Mohawks",
   "Never Panic Much",
+  "Never Pet Marmots",
   "Never Poke Monkeys",
   "Never Post Memes",
   "Never Print Magazines",
@@ -63,11 +62,14 @@
   "Never Punch Manticores",
   "Never Push Mistakes",
   "Neverending Plethora of Modules",
+<<<<<<< HEAD
   "Nevertheless Published Mine",
+=======
+  "New Patch, Merge?",
+>>>>>>> cbfe0c7f1b4f43e5f5300ae7664f141504f8656e
   "New Powerful Machines",
   "New Priority Mail",
   "New Purple Moon",
-  "New Patch, Merge?",
   "Newly Paranoid Maintainers",
   "Newts Parading Majestically",
   "Next Perpendicular Moonlanding",
@@ -75,6 +77,7 @@
   "Nice Pants, Man",
   "Nice Parakeet Marriage",
   "Nice People Matter",
+  "Nice Philanthropist Metalhead",
   "Nice Pottery Mug",
   "Nicely Packaged Make",
   "Nicely Presented Misnomer",
@@ -109,8 +112,8 @@
 >>>>>>> 6be9abad44e03478d83152391146f297877b7979
   "No Plugins; Monolithic",
   "No Possible Meaning",
-  "No Potty Mouths",
   "No Possible Meaning",
+  "No Potty Mouths",
   "No Prize Money",
   "No Problem Mate",
   "No Problem, Meatbag",
@@ -192,6 +195,7 @@
   "Nuclearly Potent Moonshine",
   "Nude People Meditating",
   "Nude Pokémon Magazine",
+  "Nude Programming Monkeys"
   "Null Pointer Missing",
   "Numbers Prefer Multiplication",
   "Nutella Peanut-Butter Marshmallow",
@@ -214,6 +218,7 @@
   "Nymphomaniac Python Mythology",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "Nude Programming Monkeys"
 >>>>>>> 6be9abad44e03478d83152391146f297877b7979
 =======
@@ -224,4 +229,6 @@
   "Nude Programming Monkeys",
   "Nuke Powered Mushroom"
 >>>>>>> 718a30841151d42319b3e497125919d17abc4adf
+=======
+>>>>>>> cbfe0c7f1b4f43e5f5300ae7664f141504f8656e
 ]
