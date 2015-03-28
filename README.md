@@ -4,6 +4,7 @@
 Unlike other dotfiles setups which symlink a bunch of files from `~/your/dotfiles/repo` to `~`, the approach of this repo is to simply use your home directory as a dotfiles git repository and use a crazy-long `.gitignore` file to avoid all the non-dotfile content in your home directory. Could be crazy, but it's working so far.
 =======
 # npm-expansions
+[![Build Status](http://img.shields.io/travis/npm/npm-expansions.svg?style=flat-square)](https://travis-ci.org/npm/npm-expansions) [![NPM version](http://img.shields.io/npm/v/npm-expansions.svg?style=flat-square)](https://www.npmjs.org/package/npm-expansions) [![NPM license](http://img.shields.io/npm/l/npm-expansions.svg?style=flat-square)](https://www.npmjs.org/package/npm-expansions)
 
 What does n-p-m stand for?
 
