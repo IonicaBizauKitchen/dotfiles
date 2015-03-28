@@ -53,7 +53,7 @@ PROMPT='
 
 # PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 export PATH=$HOME/npm/bin:$PATH
 
 # Use fresh git instead of XCode git
@@ -323,11 +323,29 @@ gitx() {
 
 alias git=hub
 
-# List branches in reverse chronological order..
-# http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
-alias b="git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+# List branches in reverse chronological order. http://goo.gl/1EKFx
+alias branches="git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+alias bb=branches
+
+# https://robots.thoughtbot.com/announcing-pick
+# brew install pick
+b() {
+  git checkout $(branches | pick)
+}
 
 # Create a new issue with ghi
 issue() { ghi open -m "$*"; }
 
 repo(){ open "https://github.com/$1" }
+
+yolo() {
+  set +x
+  git checkout -b $1-$2 master
+  git pull https://github.com/$1/npm-expansions.git $2
+  git add .
+  git commit -am "yolo"
+  git checkout master
+  git merge --no-ff $1-$2
+  git push origin master
+  set -x
+}
