@@ -1,10 +1,13 @@
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   "Nifty Procrastination Machine",
   "Nice Philanthropist Metalhead",
   "Never Pet Marmots",
 >>>>>>> 918a114d1ab855aa0c9ccbd0d890a86d5f26f60a
+=======
+>>>>>>> 7554befbdf8e22e720d0e0bd99b0ccd0271a077f
   "Naboo's Podracing Misadventure",
   "Nacho Pizza Marinade",
   "Nacho Portion Monitor",
@@ -69,12 +72,17 @@
   "Never Publish Malarkey",
   "Never Punch Manticores",
   "Never Push Mistakes",
+  "Never Push to Master",
   "Neverending Plethora of Modules",
+<<<<<<< HEAD
 <<<<<<< HEAD
   "Nevertheless Published Mine",
 =======
   "New Patch, Merge?",
 >>>>>>> cbfe0c7f1b4f43e5f5300ae7664f141504f8656e
+=======
+  "New Patch, Merge?",
+>>>>>>> 7554befbdf8e22e720d0e0bd99b0ccd0271a077f
   "New Powerful Machines",
   "New Priority Mail",
   "New Project, Monday",
@@ -122,6 +130,7 @@
   "No Package Mishaps",
   "No Packages Misplaced",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "No Pants, Mom"
 >>>>>>> 6be9abad44e03478d83152391146f297877b7979
 =======
@@ -133,6 +142,12 @@
   "No Possible Meaning",
 =======
 >>>>>>> 1df819f91697625bfb8c6d77e67224a53e6c051d
+=======
+  "No Pants, Mom",
+  "No Plugins; Monolithic",
+  "No Possible Meaning",
+  "No Possible Meaning",
+>>>>>>> 7554befbdf8e22e720d0e0bd99b0ccd0271a077f
   "No Potty Mouths",
   "No Prize Money",
   "No Problem Mate",
@@ -218,13 +233,18 @@
   "Nuclear Pumpkin Mocha",
   "Nude People Meditating",
   "Nude Pokémon Magazine",
+<<<<<<< HEAD
   "Nude Programming Monkeys"
+=======
+  "Nude Programming Monkeys",
+>>>>>>> 7554befbdf8e22e720d0e0bd99b0ccd0271a077f
   "Null Pointer Missing",
   "Numbers Prefer Multiplication",
   "Nutella Peanut-Butter Marshmallow",
   "Nutritious Pumpkin Meal",
   "Nutty Penguin Music",
   "Nutty Professor Movie",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   "Nymphomaniac Python Mythology",
@@ -264,4 +284,7 @@
   "Nude Programming Monkeys",
   "November Perfect Moustache"
 >>>>>>> 96b479d9ba4848baed9de0827a6597a892b8d9be
+=======
+  "Nymphomaniac Python Mythology"
+>>>>>>> 7554befbdf8e22e720d0e0bd99b0ccd0271a077f
 ]
