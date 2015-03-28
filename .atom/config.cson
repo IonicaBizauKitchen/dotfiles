@@ -29,6 +29,10 @@
       "highlight-selected"
       "bookmarks"
     ]
+    themes: [
+      "atom-light-ui"
+      "atom-light-syntax"
+    ]
   "tree-view":
     hideIgnoredNames: true
   "autocomplete-plus":

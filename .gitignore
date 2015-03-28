@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Applications
 Desktop
 Documents
@@ -125,3 +126,6 @@ dump.rdb
 io
 .tldr
 .inputrc
+=======
+node_modules
+>>>>>>> 7aa3eb0f10fe34dc1717d282bd0ddd17a9368bf2
