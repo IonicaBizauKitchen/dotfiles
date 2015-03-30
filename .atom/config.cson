@@ -45,3 +45,5 @@
     includeCompletionsFromAllBuffers: true
   "atom-beautify":
     _analyticsUserId: "2973be02-2b26-4115-a4a8-d0ef026bca64"
+  linter: {}
+  "linter-js-standard": {}

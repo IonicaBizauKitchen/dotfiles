@@ -1,0 +1,2 @@
+hosts=etcd-1-west.internal.npmjs.com:443
+ssl=true  

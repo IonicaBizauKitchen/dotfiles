@@ -60,7 +60,7 @@ export PATH=$HOME/npm/bin:$PATH
 # http://goo.gl/kL1KRm
 export PATH="/usr/local/git/bin:$PATH"
 
-alias adminpm="npm --userconfig=$HOME/.admin.npmrc"
+# alias adminpm="npm --userconfig=$HOME/.admin.npmrc"
 
 # allow locally installed npm binaries to be executed
 export PATH="$PATH:./node_modules/.bin"
