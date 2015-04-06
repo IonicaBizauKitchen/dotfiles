@@ -278,7 +278,7 @@ deploy() {
 }
 
 # tail npm servers
-# Usage t staging
+# Usage ntail staging
 ntail(){
   local server=$(ec2tail list-servers | grep $(basename $(pwd)) | grep $1)
   echo "ec2tail -f $server"
@@ -287,7 +287,7 @@ ntail(){
 
 
 # Type `gd branchname` to list files that differ from current branch
-gd() {
+gdiff() {
   git diff --name-status $(git symbolic-ref --short HEAD) $1
 }
 
@@ -337,15 +337,3 @@ b() {
 issue() { ghi open -m "$*"; }
 
 repo(){ open "https://github.com/$1" }
-
-yolo() {
-  set +x
-  git checkout -b $1-$2 master
-  git pull https://github.com/$1/npm-expansions.git $2
-  git add .
-  git commit -am "yolo"
-  git checkout master
-  git merge --no-ff $1-$2
-  git push origin master
-  set -x
-}
