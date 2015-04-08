@@ -291,12 +291,12 @@ gdiff() {
   git diff --name-status $(git symbolic-ref --short HEAD) $1
 }
 
-alias pull='git pull --rebase'
+alias pull='git pull'
 alias push='git push'
 alias gs='git status'
-alias cont='git rebase --continue'
 alias status='git status'
 alias st='git status'
+alias cont='git rebase --continue'
 alias diff='git diff'
 alias co='git checkout'
 alias c='git checkout'
