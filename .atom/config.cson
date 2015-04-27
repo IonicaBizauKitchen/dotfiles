@@ -10,7 +10,6 @@
   editor:
     preferredLineLength: 120
     invisibles: {}
-    fontSize: 17
   core:
     ignoredNames: [
       ".git"
@@ -28,6 +27,26 @@
       "html2jade"
       "highlight-selected"
       "bookmarks"
+      "language-ejs"
+      "color-picker"
+      "emmet"
+      "language-jsx"
+      "language-nginx"
+      "feedback"
+      "language-c"
+      "language-clojure"
+      "language-csharp"
+      "language-go"
+      "language-java"
+      "language-perl"
+      "language-php"
+      "language-property-list"
+      "language-python"
+      "language-ruby"
+      "language-ruby-on-rails"
+      "language-todo"
+      "package-generator"
+      "jshint"
     ]
     themes: [
       "atom-light-ui"
@@ -47,3 +66,6 @@
     _analyticsUserId: "2973be02-2b26-4115-a4a8-d0ef026bca64"
   linter: {}
   "linter-js-standard": {}
+".source.sql":
+  editor:
+    preferredLineLength: 120

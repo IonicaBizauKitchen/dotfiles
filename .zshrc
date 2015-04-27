@@ -285,6 +285,14 @@ ntail(){
   ec2tail -f $server
 }
 
+customer() {
+  echo production
+  curl -s -XGET https://billing-api-1-west.internal.npmjs.com/stripe/$1 | json
+
+  echo
+  echo staging
+  curl -s -XGET https://license-api-1-west-staging.internal.npmjs.com/stripe/$1 | json
+}
 
 # Type `gd branchname` to list files that differ from current branch
 gdiff() {
