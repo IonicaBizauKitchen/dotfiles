@@ -9,7 +9,8 @@
     userId: "2959f70f3a8d22a47397c0ba5975d2a4e3d10dcd"
   editor:
     preferredLineLength: 120
-    invisibles: {}
+    invisibles:
+      {}
   core:
     ignoredNames: [
       ".git"
@@ -40,7 +41,6 @@
       "language-java"
       "language-perl"
       "language-php"
-      "language-property-list"
       "language-python"
       "language-ruby"
       "language-ruby-on-rails"
@@ -64,8 +64,13 @@
     includeCompletionsFromAllBuffers: true
   "atom-beautify":
     _analyticsUserId: "2973be02-2b26-4115-a4a8-d0ef026bca64"
-  linter: {}
-  "linter-js-standard": {}
+  linter:
+    {}
+  "linter-js-standard":
+    {}
+".basic.html.text":
+  editor:
+    preferredLineLength: 120
 ".source.sql":
   editor:
     preferredLineLength: 120
