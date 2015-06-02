@@ -132,3 +132,10 @@ io
 
 admin.npmrc
 .clipboard
+
+.hgignore_global
+InVision
+fa
+.asciinema
+.electron
+.sh_history
