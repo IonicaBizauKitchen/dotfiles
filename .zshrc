@@ -1,97 +1,59 @@
-autoload colors; colors;
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
-setopt prompt_subst
-setopt append_history # append history list to the history file
-
-# prompt
-ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}%{$fg[cyan]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-
-# show git branch/tag, or name-rev if on detached head
-parse_git_branch() {
-  (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
-}
-
-# show red star if there are uncommitted changes
-parse_git_dirty() {
-  if command git diff-index --quiet HEAD 2> /dev/null; then
-    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
-  else
-    echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
-  fi
-}
-
-# if in a git repo, show dirty indicator + git branch
-git_custom_status() {
-  local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX${git_where#(refs/heads/|tags/)}$ZSH_THEME_GIT_PROMPT_SUFFIX"
-}
-
-echo_and_run() {
-  echo "\$ $@" ; "$@" ;
-}
-
-skeleton() {
-  git clone https://github.com/zeke/npm-skeleton $1
-  cd $1
-  rm -rf ./.git
-  echo "FOO=BAR" >> .env
-  echo "node_modules" >> .gitignore
-  echo ".env" >> .gitignore
-  npm install
-  npm test
-  git init
-  git add .
-  git commit -am "---=[ npm skeleton ]=---"
-}
-
-# basic prompt on the left
-PROMPT='
-%{$fg[gray]%}%1d% %(?.%{$fg[cyan]%}.%{$fg[red]%})%B$(git_custom_status)%b » '
+fpath+=("/usr/local/share/zsh/site-functions")
+autoload -Uz promptinit && promptinit
+prompt pure
 
 # PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
-export PATH=$HOME/npm/bin:$PATH
+# export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 
 # Use fresh git instead of XCode git
 # http://goo.gl/kL1KRm
-export PATH="/usr/local/git/bin:$PATH"
-
-# alias adminpm="npm --userconfig=$HOME/.admin.npmrc"
+# export PATH="/usr/local/git/bin:$PATH"
 
 # allow locally installed npm binaries to be executed
 export PATH="$PATH:./node_modules/.bin"
 
-# NVM
-source ~/.nvm/nvm.sh
+setopt append_history # append history list to the history file
 
 # Keep a long history
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export SAVEHIST=10000
 export HISTFILE=$HOME/.history
+export EDITOR="atom"
 
 # Getting around
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
-alias .....='cd ../../../../'
 alias la='ls -A1'
 alias cp='cp -r'
 alias rm=rmtrash
 alias h=/usr/local/bin/heroku
 alias exot=exit
-alias Desktop='cd ~/Desktop'
-alias desk='cd ~/Desktop'
-alias D='cd ~/Desktop'
 alias d='cd ~/Desktop'
-alias v=vagrant
 alias io=iojs
 alias t='npm test'
 alias i='npm install'
+alias config='edit ~/.zshrc'
+alias refresh='source ~/.zshrc; echo ".zshrc sourced"'
+alias pull='git pull'
+alias push='git push'
+alias gs='git status'
+alias status='git status'
+alias st='git status'
+alias cont='git rebase --continue'
+alias diff='git diff'
+alias co='git checkout'
+alias c='git checkout'
+alias com='git commit'
+alias cherry='git cherry-pick'
+alias stash='git stash'
+alias gitx=stree
+alias git=hub
+alias sub='atom'
+alias subl='atom'
+alias mate='atom'
 
 dir() {
   mkdir -p $1
@@ -120,17 +82,28 @@ source ~/.aliases
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories \
-    ~ \
-    ~/n \
-    ~/personal
+  alias_subdirectories ~ ~/personal ~/fa
 }
 
 # Allows me to cd into projects
-# cdpath=(. ~/code/ ~/code/hero ~/code/personal)s
+# cdpath=(. ~/code/ ~/code/hero ~/code/personal)
 # cdpath=~/code/hero
 # typeset -gU cdpath
 # setopt autocd
+
+skeleton() {
+  git clone https://github.com/zeke/npm-skeleton $1
+  cd $1
+  rm -rf ./.git
+  echo "FOO=BAR" >> .env
+  echo "node_modules" >> .gitignore
+  echo ".env" >> .gitignore
+  npm install
+  npm test
+  git init
+  git add .
+  git commit -am "---=[ npm skeleton ]=---"
+}
 
 my_heroku_email() {
   cat $HOME/.netrc | grep "machine api\.heroku\.com" -C 1 | tail -n 1 | egrep -o "[^ ]+@heroku.com"
@@ -173,7 +146,7 @@ fd() { find . -iname '*'$*'*' -type d ! -iname ".*" ! -path "*node_modules*"; }
 # Find all files and directories in the current path,
 # ignoring hidden files and node_modules
 f() { find . -iname '*'$*'*' ! -iname ".*" ! -path "*node_modules*"; }
-alias fa=f
+# alias fa=f
 
 in() {
   mdfind \"$*\" -onlyin .
@@ -181,12 +154,6 @@ in() {
 
 # Search the history
 hist() { history | grep "$*"; }
-
-# EDITOR
-export EDITOR="atom"
-alias sub='atom'
-alias subl='atom'
-alias mate='atom'
 
 edit() {
   dir=$1
@@ -198,10 +165,6 @@ serve() {
   port=$1
   python -m SimpleHTTPServer ${port:=8000}
 }
-
-# Dotfile
-alias config='edit ~/.zshrc'
-alias refresh='source ~/.zshrc; echo ".zshrc sourced"'
 
 # Git
 
@@ -229,20 +192,6 @@ npm() {
   fi
 }
 
-uptimes() {
-  echo "\nwww.npmjs.com"
-  curl -s https://www.npmjs.com/_monitor/status | json uptime
-
-  echo "\nstaging.npmjs.com"
-  curl -s https://staging.npmjs.com/_monitor/status | json uptime
-
-  echo "\ndocs.npmjs.com"
-  curl -s https://docs.npmjs.com/_monitor/status | json uptime
-
-  echo "\ndocs-staging.npmjs.com"
-  curl -s https://docs-staging.npmjs.com/_monitor/status | json uptime
-}
-
 # patch fix that bug
 patch(){
   npm version patch -m "$*"
@@ -264,7 +213,7 @@ major(){
   git push origin master --follow-tags
 }
 
-hdeploy() {
+deploy() {
   if [ "$1" ]; then
     commit $*
   fi
@@ -272,45 +221,10 @@ hdeploy() {
   git push heroku master
 }
 
-deploy() {
-  echo git push origin +$(git symbolic-ref --short -q HEAD):deploy-$1
-  git push origin +$(git symbolic-ref --short -q HEAD):deploy-$1
-}
-
-# tail npm servers
-# Usage ntail staging
-ntail(){
-  local server=$(ec2tail list-servers | grep $(basename $(pwd)) | grep $1)
-  echo "ec2tail -f $server"
-  ec2tail -f $server
-}
-
-customer() {
-  echo production
-  curl -s -XGET https://billing-api-1-west.internal.npmjs.com/stripe/$1 | json
-
-  echo
-  echo staging
-  curl -s -XGET https://license-api-1-west-staging.internal.npmjs.com/stripe/$1 | json
-}
-
 # Type `gd branchname` to list files that differ from current branch
 gdiff() {
   git diff --name-status $(git symbolic-ref --short HEAD) $1
 }
-
-alias pull='git pull'
-alias push='git push'
-alias gs='git status'
-alias status='git status'
-alias st='git status'
-alias cont='git rebase --continue'
-alias diff='git diff'
-alias co='git checkout'
-alias c='git checkout'
-alias com='git commit'
-alias cherry='git cherry-pick'
-alias stash='git stash'
 
 clone() {
   git clone $1
@@ -323,13 +237,6 @@ prune() {
   git branch -d $1
   git push origin :$1
 }
-
-gitx() {
-  dir=$1
-  open -b net.phere.GitX ${dir:=.} # default to .
-}
-
-alias git=hub
 
 # List branches in reverse chronological order. http://goo.gl/1EKFx
 alias branches="git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
