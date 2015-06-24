@@ -21,6 +21,7 @@ export HISTFILESIZE=10000
 export SAVEHIST=10000
 export HISTFILE=$HOME/.history
 export EDITOR="atom"
+export NODE_REPL_HISTORY_FILE=$HOME/.node_repl_history
 
 # Getting around
 alias ..='cd ..'
