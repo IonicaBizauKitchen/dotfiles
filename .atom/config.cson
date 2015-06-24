@@ -9,8 +9,8 @@
     userId: "2959f70f3a8d22a47397c0ba5975d2a4e3d10dcd"
   editor:
     preferredLineLength: 120
-    invisibles:
-      {}
+    invisibles: {}
+    fontSize: 16
   core:
     ignoredNames: [
       ".git"
@@ -64,10 +64,8 @@
     includeCompletionsFromAllBuffers: true
   "atom-beautify":
     _analyticsUserId: "2973be02-2b26-4115-a4a8-d0ef026bca64"
-  linter:
-    {}
-  "linter-js-standard":
-    {}
+  linter: {}
+  "linter-js-standard": {}
 ".basic.html.text":
   editor:
     preferredLineLength: 120
