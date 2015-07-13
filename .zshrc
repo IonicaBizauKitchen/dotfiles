@@ -1,4 +1,4 @@
-fpath+=("/usr/local/share/zsh/site-functions")
+ fpath+=("/usr/local/share/zsh/site-functions")
 autoload -Uz promptinit && promptinit
 prompt pure
 
@@ -22,6 +22,9 @@ export SAVEHIST=10000
 export HISTFILE=$HOME/.history
 export EDITOR="atom"
 export NODE_REPL_HISTORY_FILE=$HOME/.node_repl_history
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+
+source ~/.rvm/scripts/rvm
 
 # Getting around
 alias ..='cd ..'
@@ -83,7 +86,7 @@ source ~/.aliases
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~ ~/personal ~/fa
+  alias_subdirectories ~ ~/personal ~/fa ~/j
 }
 
 # Allows me to cd into projects
@@ -253,3 +256,5 @@ b() {
 issue() { ghi open -m "$*"; }
 
 repo(){ open "https://github.com/$1" }
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
