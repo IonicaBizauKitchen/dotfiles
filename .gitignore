@@ -102,14 +102,7 @@ Pictures
 Public
 code
 tmp
-
-.atom/compile-cache
-.atom/packages
-.atom/dev
-.atom/storage
-.atom/.npm
-.atom/.node-gyp
-
+.atom/
 .vagrant.d/
 VirtualBox VMs/
 .cloudup.json
@@ -141,3 +134,9 @@ fa
 .sh_history
 
 .node_repl_history
+j
+
+.zshenv
+.irb-history
+.pry_history
+.rvm

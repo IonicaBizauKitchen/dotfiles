@@ -4,7 +4,7 @@ prompt pure
 
 # PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-# export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 
 # Use fresh git instead of XCode git
 # http://goo.gl/kL1KRm
@@ -12,6 +12,8 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 # allow locally installed npm binaries to be executed
 export PATH="$PATH:./node_modules/.bin"
+
+source ~/.rvm/scripts/rvm
 
 setopt append_history # append history list to the history file
 
@@ -33,13 +35,14 @@ alias rm=rmtrash
 alias h=/usr/local/bin/heroku
 alias exot=exit
 alias d='cd ~/Desktop'
+alias down='cd ~/Downloads'
 alias io=iojs
 alias t='npm test'
 alias i='npm install'
 alias config='edit ~/.zshrc'
 alias refresh='source ~/.zshrc; echo ".zshrc sourced"'
 alias pull='git pull'
-alias push='git push'
+alias push='git push origin HEAD'
 alias gs='git status'
 alias status='git status'
 alias st='git status'
@@ -50,6 +53,7 @@ alias c='git checkout'
 alias com='git commit'
 alias cherry='git cherry-pick'
 alias stash='git stash'
+alias pop='git stash pop'
 alias gitx=stree
 alias git=hub
 alias sub='atom'
@@ -83,14 +87,8 @@ source ~/.aliases
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~ ~/personal ~/fa
+  alias_subdirectories ~ ~/personal ~/fa ~/j
 }
-
-# Allows me to cd into projects
-# cdpath=(. ~/code/ ~/code/hero ~/code/personal)
-# cdpath=~/code/hero
-# typeset -gU cdpath
-# setopt autocd
 
 skeleton() {
   git clone https://github.com/zeke/npm-skeleton $1
@@ -253,3 +251,9 @@ b() {
 issue() { ghi open -m "$*"; }
 
 repo(){ open "https://github.com/$1" }
+
+function jodeploy {
+  echo "Pushing to Github..." && git push origin HEAD &&
+  echo "Pushing to Heroku production..." && git push production master &&
+  echo "Migrating..." && heroku run rake db:migrate -r production
+}
