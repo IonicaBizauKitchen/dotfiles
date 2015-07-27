@@ -134,9 +134,21 @@ fa
 .sh_history
 
 .node_repl_history
+<<<<<<< HEAD
 j
 
 .zshenv
 .irb-history
 .pry_history
 .rvm
+=======
+
+.bashrc
+.irb-history
+.mkshrc
+.pry_history
+.profile
+.rvm
+.zlogin
+j
+>>>>>>> 3c7ef1e46b636482186f036bd20ec3d12a8665fb

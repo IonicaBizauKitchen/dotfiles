@@ -1,4 +1,4 @@
-fpath+=("/usr/local/share/zsh/site-functions")
+ fpath+=("/usr/local/share/zsh/site-functions")
 autoload -Uz promptinit && promptinit
 prompt pure
 
@@ -24,6 +24,9 @@ export SAVEHIST=10000
 export HISTFILE=$HOME/.history
 export EDITOR="atom"
 export NODE_REPL_HISTORY_FILE=$HOME/.node_repl_history
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+
+source ~/.rvm/scripts/rvm
 
 # Getting around
 alias ..='cd ..'
@@ -252,8 +255,12 @@ issue() { ghi open -m "$*"; }
 
 repo(){ open "https://github.com/$1" }
 
+<<<<<<< HEAD
 function jodeploy {
   echo "Pushing to Github..." && git push origin HEAD &&
   echo "Pushing to Heroku production..." && git push production master &&
   echo "Migrating..." && heroku run rake db:migrate -r production
 }
+=======
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+>>>>>>> 3c7ef1e46b636482186f036bd20ec3d12a8665fb
