@@ -13,7 +13,8 @@ export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
 # allow locally installed npm binaries to be executed
 export PATH="$PATH:./node_modules/.bin"
 
-source ~/.rvm/scripts/rvm
+# source ~/.rvm/scripts/rvm
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 setopt append_history # append history list to the history file
 
@@ -46,6 +47,8 @@ alias config='edit ~/.zshrc'
 alias refresh='source ~/.zshrc; echo ".zshrc sourced"'
 alias pull='git pull'
 alias push='git push origin HEAD'
+alias fpush='git push -f origin HEAD'
+alias add='git add'
 alias gs='git status'
 alias status='git status'
 alias st='git status'
@@ -62,6 +65,7 @@ alias git=hub
 alias sub='atom'
 alias subl='atom'
 alias mate='atom'
+alias copy='pbcopy'
 
 dir() {
   mkdir -p $1
@@ -255,12 +259,8 @@ issue() { ghi open -m "$*"; }
 
 repo(){ open "https://github.com/$1" }
 
-<<<<<<< HEAD
 function jodeploy {
   echo "Pushing to Github..." && git push origin HEAD &&
   echo "Pushing to Heroku production..." && git push production master &&
   echo "Migrating..." && heroku run rake db:migrate -r production
 }
-=======
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
->>>>>>> 3c7ef1e46b636482186f036bd20ec3d12a8665fb
