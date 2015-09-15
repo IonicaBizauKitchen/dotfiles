@@ -5,10 +5,12 @@
 .bash_profile
 .cache/
 .CFUserTextEncoding
+.cloudup.json
 .config/
 .dropbox/
 .electron/
 .gem/
+.gh.json
 .gitconfig
 .gnupg/
 .guard_history

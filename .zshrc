@@ -223,6 +223,10 @@ clone() {
   edit .
 }
 
+fork() {
+  forks && clone $1
+}
+
 # Remove a remote and local git branch
 prune() {
   git branch -d $1
