@@ -1,33 +1,27 @@
- fpath+=("/usr/local/share/zsh/site-functions")
+fpath+=("/usr/local/share/zsh/site-functions")
 autoload -Uz promptinit && promptinit
 prompt pure
 
 # PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
-
-# Use fresh git instead of XCode git
-# http://goo.gl/kL1KRm
-# export PATH="/usr/local/git/bin:$PATH"
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
 # allow locally installed npm binaries to be executed
 export PATH="$PATH:./node_modules/.bin"
 
-# source ~/.rvm/scripts/rvm
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Ruby
+source ~/.rvm/scripts/rvm
 
-setopt append_history # append history list to the history file
-
-# Keep a long history
+# History
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export SAVEHIST=10000
 export HISTFILE=$HOME/.history
-export EDITOR="atom"
+setopt append_history
 export NODE_REPL_HISTORY_FILE=$HOME/.node_repl_history
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+hist() { history | grep "$*"; }
 
-source ~/.rvm/scripts/rvm
+export EDITOR="atom"
 
 # Getting around
 alias ..='cd ..'
@@ -67,6 +61,12 @@ alias subl='atom'
 alias mate='atom'
 alias copy='pbcopy'
 
+# https://github.com/mroth/lolcommits/wiki/FAQ
+export LOLCOMMITS_DELAY=5
+lol() {
+  open "$HOME/.lolcommits/$(basename $(pwd))"
+}
+
 dir() {
   mkdir -p $1
   cd $1
@@ -94,21 +94,7 @@ source ~/.aliases
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~ ~/personal ~/fa ~/j
-}
-
-skeleton() {
-  git clone https://github.com/zeke/npm-skeleton $1
-  cd $1
-  rm -rf ./.git
-  echo "FOO=BAR" >> .env
-  echo "node_modules" >> .gitignore
-  echo ".env" >> .gitignore
-  npm install
-  npm test
-  git init
-  git add .
-  git commit -am "---=[ npm skeleton ]=---"
+  alias_subdirectories ~ ~/personal ~/clients ~/clients/j
 }
 
 my_heroku_email() {
@@ -159,7 +145,6 @@ in() {
 }
 
 # Search the history
-hist() { history | grep "$*"; }
 
 edit() {
   dir=$1
@@ -255,12 +240,8 @@ b() {
 }
 
 # Create a new issue with ghi
-issue() { ghi open -m "$*"; }
+# issue() { ghi open -m "$*"; }
 
 repo(){ open "https://github.com/$1" }
 
-function jodeploy {
-  echo "Pushing to Github..." && git push origin HEAD &&
-  echo "Pushing to Heroku production..." && git push production master &&
-  echo "Migrating..." && heroku run rake db:migrate -r production
-}
+source ~/clients/j/josephine/.shell-commands
