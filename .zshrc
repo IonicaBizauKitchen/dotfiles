@@ -54,6 +54,7 @@ alias com='git commit'
 alias cherry='git cherry-pick'
 alias stash='git stash'
 alias pop='git stash pop'
+alias pr='hub pull-request'
 alias gitx=stree
 alias git=hub
 alias sub='atom'
@@ -94,7 +95,7 @@ source ~/.aliases
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~ ~/personal ~/clients ~/clients/j
+  alias_subdirectories ~ ~/personal ~/clients ~/clients/j ~/clients/meadow
 }
 
 my_heroku_email() {
@@ -168,6 +169,10 @@ commit() {
 
 uncommit() {
   git reset --soft HEAD~1
+}
+
+track() {
+  git checkout --track $1
 }
 
 # npm shortcuts
