@@ -13,6 +13,7 @@
 .gh.json
 .gitconfig
 .gnupg/
+.greenkeeperrc
 .guard_history
 .heroku/
 .hgignore_global
