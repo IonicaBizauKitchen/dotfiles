@@ -34,7 +34,6 @@ alias h=/usr/local/bin/heroku
 alias exot=exit
 alias d='cd ~/Desktop'
 alias down='cd ~/Downloads'
-alias io=iojs
 alias t='npm test'
 alias i='npm install'
 alias config='edit ~/.zshrc'
@@ -50,6 +49,7 @@ alias cont='git rebase --continue'
 alias diff='git diff'
 alias co='git checkout'
 alias c='git checkout'
+alias fetch='git fetch'
 alias com='git commit'
 alias cherry='git cherry-pick'
 alias stash='git stash'
@@ -61,6 +61,7 @@ alias sub='atom'
 alias subl='atom'
 alias mate='atom'
 alias copy='pbcopy'
+alias rdm='rake db:migrate && rake db:test:prepare'
 
 # https://github.com/mroth/lolcommits/wiki/FAQ
 export LOLCOMMITS_DELAY=5
