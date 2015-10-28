@@ -55,6 +55,8 @@ alias cherry='git cherry-pick'
 alias stash='git stash'
 alias pop='git stash pop'
 alias pr='hub pull-request'
+alias master='git checkout master'
+alias m='git checkout master'
 alias gitx=stree
 alias git=hub
 alias sub='atom'
@@ -168,8 +170,13 @@ commit() {
   git commit -avm "$*" --allow-empty
 }
 
+# undo local commits and unstage files
+# uncommit # undoes 1 commit by default
+# uncommit 3
 uncommit() {
-  git reset --soft HEAD~1
+  count=$1
+  git reset --soft HEAD~${count:-1}
+  git reset
 }
 
 track() {
