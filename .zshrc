@@ -98,7 +98,7 @@ source ~/.aliases
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~ ~/personal ~/clients ~/clients/j ~/clients/meadow
+  alias_subdirectories ~ ~/personal ~/clients ~/clients/josephine
 }
 
 my_heroku_email() {
@@ -148,7 +148,12 @@ in() {
   mdfind \"$*\" -onlyin .
 }
 
-# Search the history
+# Find files matching pattern $1 and copy them to directory $2
+# fcopy svg ~/Desktop
+fcopy() {
+  ff $1 | xargs -I {} cp {} $2
+}
+
 
 edit() {
   dir=$1
@@ -261,4 +266,4 @@ b() {
 
 repo(){ open "https://github.com/$1" }
 
-source ~/clients/j/josephine/.shell-commands
+source ~/clients/josephine/www/.shell-commands
