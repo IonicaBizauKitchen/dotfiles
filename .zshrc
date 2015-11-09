@@ -45,7 +45,7 @@ alias add='git add'
 alias gs='git status'
 alias status='git status'
 alias st='git status'
-alias cont='git rebase --continue'
+alias cont='git add -A && git rebase --continue'
 alias diff='git diff'
 alias co='git checkout'
 alias c='git checkout'
@@ -267,3 +267,14 @@ b() {
 repo(){ open "https://github.com/$1" }
 
 source ~/clients/josephine/www/.shell-commands
+
+# Convert
+# https://goo.gl/iOCPs9
+# Usage: mov2gif some.mov
+# The gif will be named after the mov
+mov2gif(){
+  infile=$1
+  outfile=${infile/.mov/.gif}
+  echo "ffmpeg -i $infile -pix_fmt rgb24 -r 20 -f gif - | gifsicle --optimize=3 --delay=3 > $outfile"
+  ffmpeg -i $infile -pix_fmt rgb24 -r 20 -f gif - | gifsicle --optimize=3 --delay=3 > $outfile
+}
