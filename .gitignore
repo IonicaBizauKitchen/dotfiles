@@ -35,6 +35,7 @@
 .ssh/
 .subversion/
 .Trash/
+.Xauthority
 .zshenv
 Applications/
 clients/

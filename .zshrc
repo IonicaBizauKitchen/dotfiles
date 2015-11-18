@@ -49,12 +49,10 @@ alias cont='git add -A && git rebase --continue'
 alias diff='git diff'
 alias co='git checkout'
 alias c='git checkout'
-alias fetch='git fetch'
 alias com='git commit'
 alias cherry='git cherry-pick'
 alias stash='git stash'
 alias pop='git stash pop'
-alias pr='hub pull-request'
 alias master='git checkout master'
 alias m='git checkout master'
 alias gitx=stree
@@ -64,6 +62,22 @@ alias subl='atom'
 alias mate='atom'
 alias copy='pbcopy'
 alias rdm='rake db:migrate && rake db:test:prepare'
+
+
+# `pr` to open a pull request from scratch
+# `pr <issue-id> to convert an existing issue
+pr() {
+  if [ "$1" = "" ]; then
+    hub pull-request
+  else
+    hub pull-request -i $1
+  fi
+}
+
+# Usage: fetch some-remote-branch
+fetch() {
+  git fetch origin $1:$1 && git checkout $1
+}
 
 # https://github.com/mroth/lolcommits/wiki/FAQ
 export LOLCOMMITS_DELAY=5
@@ -141,8 +155,9 @@ fd() { find . -iname '*'$*'*' -type d ! -iname ".*" ! -path "*node_modules*"; }
 
 # Find all files and directories in the current path,
 # ignoring hidden files and node_modules
-f() { find . -iname '*'$*'*' ! -iname ".*" ! -path "*node_modules*"; }
-# alias fa=f
+# f() { find . -iname '*'$*'*' ! -iname ".*" ! -path "*node_modules*"; }
+f() { find . -iname '*'$*'*' ! -iname ".*"; }
+alias fa=f
 
 in() {
   mdfind \"$*\" -onlyin .
@@ -275,6 +290,6 @@ source ~/clients/josephine/www/.shell-commands
 mov2gif(){
   infile=$1
   outfile=${infile/.mov/.gif}
-  echo "ffmpeg -i $infile -pix_fmt rgb24 -r 20 -f gif - | gifsicle --optimize=3 --delay=3 > $outfile"
-  ffmpeg -i $infile -pix_fmt rgb24 -r 20 -f gif - | gifsicle --optimize=3 --delay=3 > $outfile
+  echo "ffmpeg -i $infile -pix_fmt rgb24 -r 15 -f gif - | gifsicle --optimize=3 --delay=3 > $outfile"
+  ffmpeg -i $infile -pix_fmt rgb24 -r 15 -f gif - | gifsicle --optimize=3 --delay=3 > $outfile
 }
