@@ -28,6 +28,7 @@ export EDITOR="atom"
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+alias home='cd ~'
 alias la='ls -A1'
 alias cp='cp -r'
 alias rm=rmtrash
@@ -170,12 +171,15 @@ fcopy() {
   ff $1 | xargs -I {} cp {} $2
 }
 
-
 edit() {
   dir=$1
   atom ${dir:-.} # default to .
 }
-alias e=edit
+
+gd() {
+  dir=$1
+  open ${dir:-.} -a "GitHub Desktop" # default to .
+}
 
 serve() {
   port=$1
