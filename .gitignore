@@ -9,6 +9,7 @@
 .config/
 .dropbox/
 .electron/
+.flickr-config
 .gem/
 .gh.json
 .gitconfig
@@ -35,6 +36,7 @@
 .ssh/
 .subversion/
 .Trash/
+.travis
 .Xauthority
 .zshenv
 Applications/

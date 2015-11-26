@@ -57,7 +57,8 @@ alias stash='git stash'
 alias pop='git stash pop'
 alias master='git checkout master'
 alias m='git checkout master'
-alias gitx=stree
+alias gitx=gd
+alias stree=gd
 alias git=hub
 alias sub='atom'
 alias subl='atom'
@@ -298,3 +299,6 @@ mov2gif(){
   echo "ffmpeg -i $infile -pix_fmt rgb24 -r 15 -f gif - | gifsicle --optimize=3 --delay=3 > $outfile"
   ffmpeg -i $infile -pix_fmt rgb24 -r 15 -f gif - | gifsicle --optimize=3 --delay=3 > $outfile
 }
+
+# added by travis gem
+[ -f /Users/z/.travis/travis.sh ] && source /Users/z/.travis/travis.sh
