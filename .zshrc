@@ -97,7 +97,7 @@ dir() {
 # of the given directory (or directories).
 #
 # Usage:
-# alias_subdirectories ~/n ~/personal
+# alias_subdirectories ~/n ~/zeke
 alias_subdirectories() {
   for dir in $(find $* -type d -mindepth 1 -maxdepth 1); do
     base=`basename $dir`
@@ -115,7 +115,7 @@ source ~/.aliases
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~ ~/personal ~/clients ~/clients/josephine
+  alias_subdirectories ~ ~/zeke ~/clients ~/clients/josephine
 }
 
 my_heroku_email() {
