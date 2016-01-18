@@ -57,6 +57,8 @@ alias stash='git stash'
 alias pop='git stash pop'
 alias master='git checkout master'
 alias m='git checkout master'
+alias glog='git log --pretty=oneline'
+alias commits=glog
 alias gitx=gd
 alias stree=gd
 alias git=hub
