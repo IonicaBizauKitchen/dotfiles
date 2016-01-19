@@ -21,7 +21,7 @@ setopt append_history
 export NODE_REPL_HISTORY_FILE=$HOME/.node_repl_history
 hist() { history | grep "$*"; }
 
-alias atom='open -a "Atom Beta"'
+# alias atom='open -a "Atom Beta"'
 export EDITOR="atom"
 
 # Getting around
