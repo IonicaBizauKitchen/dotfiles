@@ -19,8 +19,10 @@
 .heroku/
 .hgignore_global
 .history
+.ied_cache/
 .irb-history
 .lesshst
+.local-npm/
 .local/
 .lolcommits/
 .mapbox-studio/
@@ -29,6 +31,9 @@
 .node-gyp/
 .npm/
 .npmrc
+.npmrcs/
+.oracle_jre_usage/
+.pm2/
 .pry_history
 .remind-me/
 .rnd

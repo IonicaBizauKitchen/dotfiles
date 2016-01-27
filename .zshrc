@@ -25,49 +25,43 @@ hist() { history | grep "$*"; }
 export EDITOR="atom"
 
 # Getting around
-alias ..='cd ..'
-alias ...='cd ../../'
 alias ....='cd ../../../'
-alias home='cd ~'
-alias la='ls -A1'
-alias cp='cp -r'
-alias rm=rmtrash
-alias h=/usr/local/bin/heroku
-alias exot=exit
-alias d='cd ~/Desktop'
-alias down='cd ~/Downloads'
-alias t='npm test'
-alias i='npm install'
+alias ...='cd ../../'
+alias ..='cd ..'
+alias add='git add'
+alias c='git checkout'
+alias cherry='git cherry-pick'
+alias co='git checkout'
+alias commits=glog
 alias config='edit ~/.zshrc'
-alias refresh='source ~/.zshrc; echo ".zshrc sourced"'
+alias cont='git add -A && git rebase --continue'
+alias copy='pbcopy'
+alias cp='cp -r'
+alias d='cd ~/Desktop'
+alias diff='git diff'
+alias down='cd ~/Downloads'
+alias exiot=exit
+alias exot=exit
+alias fpush='git push -f origin HEAD'
+alias git=hub
+alias glog='git log --pretty=oneline'
+alias gs='git status'
+alias h=/usr/local/bin/heroku
+alias home='cd ~'
+alias i='npm install'
+alias la='ls -A1'
+alias master='git checkout master'
+alias pop='git stash pop'
 alias pull='git pull'
 alias push='git push origin HEAD'
-alias fpush='git push -f origin HEAD'
-alias add='git add'
-alias gs='git status'
-alias status='git status'
-alias st='git status'
-alias cont='git add -A && git rebase --continue'
-alias diff='git diff'
-alias co='git checkout'
-alias c='git checkout'
-alias com='git commit'
-alias cherry='git cherry-pick'
-alias stash='git stash'
-alias pop='git stash pop'
-alias master='git checkout master'
-alias m='git checkout master'
-alias glog='git log --pretty=oneline'
-alias commits=glog
-alias gitx=gd
-alias stree=gd
-alias git=hub
-alias sub='atom'
-alias subl='atom'
-alias mate='atom'
-alias copy='pbcopy'
 alias rdm='rake db:migrate && rake db:test:prepare'
+alias refresh='source ~/.zshrc; echo ".zshrc sourced"'
+alias rm=rmtrash
+alias stash='git stash'
+alias status='git status'
+alias t='npm test'
 
+function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 
 # `pr` to open a pull request from scratch
 # `pr <issue-id> to convert an existing issue
