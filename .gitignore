@@ -42,6 +42,8 @@
 .subversion/
 .Trash/
 .travis
+.wakatime.db
+.wakatime.log
 .Xauthority
 .zshenv
 Applications/
