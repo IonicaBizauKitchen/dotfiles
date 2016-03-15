@@ -1,3 +1,9 @@
+# npm config set init.author.name "Zeke Sikelianos"
+# npm config set init.author.email zeke@sikelianos.com
+# npm config set init.author.url http://zeke.sikelianos.com
+# npm config set init.license MIT
+# npm config set save true
+
 fpath+=("/usr/local/share/zsh/site-functions")
 autoload -Uz promptinit && promptinit
 prompt pure
@@ -56,10 +62,13 @@ alias pull='git pull'
 alias push='git push origin HEAD'
 alias rdm='rake db:migrate && rake db:test:prepare'
 alias refresh='source ~/.zshrc; echo ".zshrc sourced"'
-alias rm=rmtrash
 alias stash='git stash'
 alias status='git status'
 alias t='npm test'
+
+tree() {
+  command tree -I 'node_modules' "$@"
+}
 
 function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 
