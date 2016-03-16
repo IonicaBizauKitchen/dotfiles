@@ -4,6 +4,10 @@
 # npm config set init.license MIT
 # npm config set save true
 
+# git config --global core.excludesfile '~/.gitignore_global'
+# set droid sans mono in atom
+
+# https://github.com/sindresorhus/pure
 fpath+=("/usr/local/share/zsh/site-functions")
 autoload -Uz promptinit && promptinit
 prompt pure
@@ -15,77 +19,23 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 # allow locally installed npm binaries to be executed
 export PATH="$PATH:./node_modules/.bin"
 
-# Ruby
-source ~/.rvm/scripts/rvm
-
 # History
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export SAVEHIST=10000
 export HISTFILE=$HOME/.history
-setopt append_history
 export NODE_REPL_HISTORY_FILE=$HOME/.node_repl_history
+setopt append_history
 hist() { history | grep "$*"; }
 
-# alias atom='open -a "Atom Beta"'
 export EDITOR="atom"
-
-# Getting around
-alias ....='cd ../../../'
-alias ...='cd ../../'
-alias ..='cd ..'
-alias add='git add'
-alias c='git checkout'
-alias cherry='git cherry-pick'
-alias co='git checkout'
-alias commits=glog
-alias config='edit ~/.zshrc'
-alias cont='git add -A && git rebase --continue'
-alias copy='pbcopy'
-alias cp='cp -r'
-alias d='cd ~/Desktop'
-alias diff='git diff'
-alias down='cd ~/Downloads'
-alias exiot=exit
-alias exot=exit
-alias fpush='git push -f origin HEAD'
-alias git=hub
-alias glog='git log --pretty=oneline'
-alias gs='git status'
-alias h=/usr/local/bin/heroku
-alias home='cd ~'
-alias i='npm install'
-alias la='ls -A1'
-alias master='git checkout master'
-alias pop='git stash pop'
-alias pull='git pull'
-alias push='git push origin HEAD'
-alias rdm='rake db:migrate && rake db:test:prepare'
-alias refresh='source ~/.zshrc; echo ".zshrc sourced"'
-alias stash='git stash'
-alias status='git status'
-alias t='npm test'
 
 tree() {
   command tree -I 'node_modules' "$@"
 }
 
+# Open a directory or file with Microsoft Visual Studio Code
 function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
-
-# `pr` to open a pull request from scratch
-# `pr <issue-id> to convert an existing issue
-pr() {
-  if [ "$1" = "" ]; then
-    hub pull-request
-  else
-    hub pull-request -i $1
-  fi
-}
-
-# Usage: fetch some-remote-branch
-fetch() {
-  git fetch origin $1:$1 && git checkout $1
-}
 
 # https://github.com/mroth/lolcommits/wiki/FAQ
 export LOLCOMMITS_DELAY=5
@@ -110,17 +60,19 @@ alias_subdirectories() {
     if ! env which -s $base; then
       echo alias "'$base'"="'cd "'"'"$dir"'"'"'"
     fi
-    done > ~/.aliases
+    done > ~/.aliases_for_projects
 
   # Cache aliases for faster shell boot time
-  source ~/.aliases
+  source ~/.aliases_for_projects
 }
 
+alias aliases='edit ~/.aliases'
 source ~/.aliases
+source ~/.aliases_for_projects
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~ ~/zeke ~/clients ~/clients/josephine
+  alias_subdirectories ~ ~/zeke ~/clients
 }
 
 my_heroku_email() {
@@ -179,7 +131,7 @@ fcopy() {
 
 edit() {
   dir=$1
-  atom ${dir:-.} # default to .
+  open -a '/Applications/Atom.app' ${dir:-.} # default to .
 }
 
 gd() {
@@ -212,6 +164,21 @@ uncommit() {
 
 track() {
   git checkout --track $1
+}
+
+# `pr` to open a pull request from scratch
+# `pr <issue-id> to convert an existing issue
+pr() {
+  if [ "$1" = "" ]; then
+    hub pull-request
+  else
+    hub pull-request -i $1
+  fi
+}
+
+# Usage: fetch some-remote-branch
+fetch() {
+  git fetch origin $1:$1 && git checkout $1
 }
 
 # npm shortcuts
@@ -292,7 +259,7 @@ b() {
 
 repo(){ open "https://github.com/$1" }
 
-source ~/clients/josephine/www/.shell-commands
+# source ~/clients/josephine/www/.shell-commands
 
 # Convert
 # https://goo.gl/iOCPs9
@@ -306,4 +273,4 @@ mov2gif(){
 }
 
 # added by travis gem
-[ -f /Users/z/.travis/travis.sh ] && source /Users/z/.travis/travis.sh
+[ -f /Users/zeke/.travis/travis.sh ] && source /Users/zeke/.travis/travis.sh

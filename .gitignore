@@ -1,4 +1,4 @@
-.aliases
+.aliases_for_projects
 .atom/
 .aws/
 .bash_history
@@ -47,6 +47,7 @@
 .Xauthority
 .zshenv
 Applications/
+atom
 clients/
 Desktop/
 Documents/
@@ -54,6 +55,7 @@ Downloads/
 Dropbox/
 fa/
 forks/
+github
 Google Drive/
 j/
 Library/
