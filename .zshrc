@@ -60,19 +60,19 @@ alias_subdirectories() {
     if ! env which -s $base; then
       echo alias "'$base'"="'cd "'"'"$dir"'"'"'"
     fi
-    done > ~/.aliases_for_projects
+  done > ~/.aliases_for_projects.sh
 
   # Cache aliases for faster shell boot time
-  source ~/.aliases_for_projects
+  source ~/.aliases_for_projects.sh
 }
 
-alias aliases='edit ~/.aliases'
-source ~/.aliases
-source ~/.aliases_for_projects
+alias aliases='edit ~/.aliases.sh'
+source ~/.aliases.sh
+source ~/.aliases_for_projects.sh
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~ ~/zeke ~/clients
+  alias_subdirectories ~ ~/zeke ~/clients ~/github ~/atom
 }
 
 my_heroku_email() {
