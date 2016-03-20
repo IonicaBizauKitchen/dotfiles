@@ -4,6 +4,13 @@
 # npm config set init.license MIT
 # npm config set save true
 
+# brew tap thoughtbot/formulae
+# brew tap caskroom/cask
+# brew install pick
+# brew install hub
+# brew install tree
+# brew cask install vlc
+
 # git config --global core.excludesfile '~/.gitignore_global'
 # set droid sans mono in atom
 
@@ -131,7 +138,8 @@ fcopy() {
 
 edit() {
   dir=$1
-  open -a '/Applications/Atom.app' ${dir:-.} # default to .
+  atom ${dir:-.} # default to .
+  # open -a '/Applications/Atom.app' ${dir:-.} # default to .
 }
 
 gd() {
