@@ -11,6 +11,8 @@
 # brew install tree
 # brew cask install vlc
 
+# npm i -g pure
+
 # git config --global core.excludesfile '~/.gitignore_global'
 # set droid sans mono in atom
 
@@ -79,7 +81,7 @@ source ~/.aliases_for_projects.sh
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~ ~/zeke ~/clients ~/github ~/atom
+  alias_subdirectories ~/zeke ~/github ~/atom ~/electron ~/forks
 }
 
 my_heroku_email() {
