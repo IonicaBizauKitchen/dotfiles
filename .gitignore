@@ -42,6 +42,7 @@
 .subversion/
 .Trash/
 .travis
+.trymodule/
 .wakatime.db
 .wakatime.log
 .Xauthority
@@ -53,6 +54,7 @@ Desktop/
 Documents/
 Downloads/
 Dropbox/
+electron/
 fa/
 forks/
 github
