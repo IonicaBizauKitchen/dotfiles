@@ -4,6 +4,8 @@
 # npm config set init.license MIT
 # npm config set save true
 
+
+
 # brew tap thoughtbot/formulae
 # brew tap caskroom/cask
 # brew install pick
@@ -13,7 +15,7 @@
 
 # npm i -g pure
 
-# git config --global core.excludesfile '~/.gitignore_global'
+# git config --global core.excludesfile ~/.gitignore_global
 # set droid sans mono in atom
 
 # https://github.com/sindresorhus/pure
@@ -248,10 +250,11 @@ fork() {
   forks && clone $1
 }
 
-# Remove a remote and local git branch
 prune() {
-  git branch -d $1
-  git push origin :$1
+  echo "Remove a git branch, locally and remotely."
+  local branch=$(branches | pick)
+  git branch -D $branch
+  git push origin :$branch
 }
 
 # List branches in reverse chronological order. http://goo.gl/1EKFx
