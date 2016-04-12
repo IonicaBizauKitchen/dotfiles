@@ -38,6 +38,7 @@
 .remind-me/
 .rnd
 .rvm/
+.secrets
 .ssh/
 .subversion/
 .Trash/
@@ -45,6 +46,7 @@
 .trymodule/
 .wakatime.db
 .wakatime.log
+.wine
 .Xauthority
 .zshenv
 Applications/
