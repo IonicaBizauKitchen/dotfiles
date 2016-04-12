@@ -80,6 +80,7 @@ alias_subdirectories() {
 alias aliases='edit ~/.aliases.sh'
 source ~/.aliases.sh
 source ~/.aliases_for_projects.sh
+source ~/.secrets
 
 # Update my favorite directories
 function zindex {
