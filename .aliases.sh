@@ -8,6 +8,7 @@ alias c='git checkout'
 alias cherry='git cherry-pick'
 alias co='git checkout'
 alias commits=glog
+alias comit=commit
 alias config='edit ~/.zshrc'
 alias cont='git add -A && git rebase --continue'
 alias copy='pbcopy'
