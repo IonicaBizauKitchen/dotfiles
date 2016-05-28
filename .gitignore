@@ -1,6 +1,7 @@
 .aliases_for_projects.sh
 .atom/
 .aws/
+.babel.json
 .bash_history
 .bash_profile
 .cache/
@@ -32,6 +33,7 @@
 .npm/
 .npmrc
 .npmrcs/
+.nylas
 .oracle_jre_usage/
 .pm2/
 .pry_history
@@ -52,6 +54,7 @@
 Applications/
 atom
 clients/
+Creative Cloud Files/
 Desktop/
 Documents/
 Downloads/
@@ -67,7 +70,6 @@ j/
 Library/
 Movies/
 Music/
-.nylas
 Pictures/
 Public/
 zeke/
