@@ -4,8 +4,6 @@
 # npm config set init.license MIT
 # npm config set save true
 
-
-
 # brew tap thoughtbot/formulae
 # brew tap caskroom/cask
 # brew install pick
@@ -84,7 +82,7 @@ source ~/.secrets
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~/zeke ~/github ~/atom ~/electron ~/forks
+  alias_subdirectories ~/Dropbox/git/zeke ~/zeke ~/github ~/atom ~/electron ~/forks
 }
 
 my_heroku_email() {
