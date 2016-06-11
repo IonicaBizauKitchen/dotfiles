@@ -23,9 +23,7 @@ prompt pure
 
 # PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
-
-# allow locally installed npm binaries to be executed
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH="$PATH:./node_modules/.bin"
 
 # History
@@ -82,7 +80,7 @@ source ~/.secrets
 
 # Update my favorite directories
 function zindex {
-  alias_subdirectories ~/Dropbox/git/zeke ~/zeke ~/github ~/atom ~/electron ~/forks
+  alias_subdirectories ~/zeke ~/github ~/atom ~/electron ~/forks
 }
 
 my_heroku_email() {
@@ -271,8 +269,6 @@ b() {
 
 repo(){ open "https://github.com/$1" }
 
-# source ~/clients/josephine/www/.shell-commands
-
 # Convert
 # https://goo.gl/iOCPs9
 # Usage: mov2gif some.mov
@@ -286,3 +282,6 @@ mov2gif(){
 
 # added by travis gem
 [ -f /Users/zeke/.travis/travis.sh ] && source /Users/zeke/.travis/travis.sh
+
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

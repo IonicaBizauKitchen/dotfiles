@@ -73,3 +73,6 @@ Music/
 Pictures/
 Public/
 zeke/
+.now.json
+.rbenv
+.bundle
